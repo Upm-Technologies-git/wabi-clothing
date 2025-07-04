@@ -1,0 +1,641 @@
+{% load static %}
+{% load widget_tweaks %}
+<!Doctype html>
+<html lang="en">
+
+<!-- Head -->
+<head>
+  <!-- Page Meta Tags-->
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <meta name="keywords" content="">
+
+  <!-- Custom Google Fonts-->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600&family=Roboto:wght@300;400;700&display=auto"
+    rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicon/apple-touch-icon.png' %}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon/favicon-32x32.png' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon/favicon-16x16.png' %}">
+  <link rel="mask-icon" href="{% static 'images/favicon/safari-pinned-tab.svg' %}" color="#5bbad5">
+  <link rel="icon" href="{% static 'images/favicon/favicon.ico' %}" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Vendor CSS -->
+  <link rel="stylesheet" href="{% static 'css/libs.bundle.css' %}" />
+
+  <!-- Main CSS -->
+  <link rel="stylesheet" href="{% static 'css/theme.bundle.css' %}" />
+
+  <!-- Fix for custom scrollbar if JS is disabled-->
+  <noscript>
+    <style>
+      /**
+          * Reinstate scrolling for non-JS clients
+          */
+      .simplebar-content-wrapper {
+        overflow: auto;
+      }
+
+
+    </style>
+  </noscript>
+
+  <!-- Page Title -->
+  <title>Wabi Clothing | Product </title>
+
+  <style>
+.star-rating {
+  display: inline-flex;
+  direction: rtl; /* Make labels clickable left-to-right visually */
+}
+
+.star-rating input[type="radio"] {
+  display: none;
+}
+
+.star-rating label {
+  font-size: 2rem;
+  color: #ccc;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.star-rating input[type="radio"]:checked ~ label,
+.star-rating label:hover,
+.star-rating label:hover ~ label {
+  color: #ffc107;
+}
+@media (max-width: 576px) {
+  .navbar-nav.flex-row {
+    flex-direction: column !important;
+    align-items: center;
+  }
+}
+/* Wrapper */
+.search-form {
+  max-width: 0;
+  overflow: hidden;
+  transition: max-width 0.4s ease;
+  white-space: nowrap;
+}
+
+/* Active state */
+.search-form.active {
+  max-width: 400px;
+}
+
+/* Input style */
+.search-input {
+  width: 100%;
+  min-width: 180px;
+  height: 36px;
+  border-radius: 6px;
+  padding: 0 12px;
+  font-size: 14px;
+  border: 1px solid #ced4da;
+}
+
+/* Buttons aligned and sized */
+.search-form .btn {
+  height: 36px;
+  padding: 0 12px;
+  font-size: 14px;
+  line-height: 1.4;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Optional: icon size fix */
+.search-form .btn i {
+  font-size: 16px;
+}
+.fixed-square-img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    max-width: 4330px;
+    max-height: 4330px;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+    </style>
+</head>
+<body class="">
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white border-0 shadow-sm py-2">
+  <div class="container-fluid">
+
+    <!-- Logo + Toggle + Collapse all grouped -->
+    <div class="d-flex w-100 flex-column flex-lg-row justify-content-between align-items-center">
+      <!-- Top row: logo + toggler -->
+      <!-- Logo, Center Title, and Toggle -->
+      <div class="d-flex w-100 justify-content-between align-items-center position-relative">
+        <!-- Logo Left -->
+        <a class="navbar-brand fw-bold fs-3 m-0 p-0" href="{% url 'index' %}">
+          <img src="{% static 'images/logos/wabi-logo.png' %}" alt="Logo" style="height: 40px;">
+        </a>
+
+        <!-- Center Title -->
+        <div class="d-flex justify-content-end w-100 text-center py-2 px-4 ">
+  <a class="fw-bold text-dark text-decoration-none"
+     href="{% url 'index' %}"
+     style="
+       font-family: 'Orbitron', sans-serif;
+       letter-spacing: 2px;
+       font-size: clamp(1.2rem, 5vw, 2rem); 
+       word-break: break-word;
+     ">
+    <span>WABI CLOTHING</span>
+  </a>
+</div>
+
+
+
+        <!-- Toggle Right -->
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar"
+          aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    </div>
+
+
+      <!-- Collapsible Menu -->
+      <div class="collapse navbar-collapse mt-2 mt-lg-0 w-100" id="mainNavbar">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 text-center gap-2 w-100 justify-content-center">
+          <li class="nav-item">
+            <a class="nav-link fw-medium px-3" href="{% url 'category' %}">Category</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link fw-medium px-3" href="{% url 'cart' %}">Cart</a>
+          </li>
+
+          <!-- Mobile only login -->
+          <li class="nav-item d-lg-none">
+            {% if request.user.is_authenticated %}
+              <a class="nav-link fw-medium px-3 text-nowrap" href="{% url 'profile' %}">My Account</a>
+            {% else %}
+              <a class="nav-link fw-medium px-3" href="{% url 'login' %}">Login</a>
+            {% endif %}
+          </li>
+
+          <!-- Search (desktop only) -->
+          <li class="nav-item d-none d-sm-flex align-items-center position-relative">
+            <span class="nav-link text-body cursor-pointer px-3 fw-medium search-trigger">
+              <i class="ri-search-line align-middle me-1"></i>Search
+            </span>
+
+            <form method="get" action="{% url 'search_redirect' %}" class="search-form d-flex align-items-center ms-2">
+              <input type="text" name="q" class="form-control search-input" placeholder="Search..." required/>
+              <button type="submit" class="btn btn-dark btn-sm ms-2">Go</button>
+            </form>
+          </li>
+
+          <!-- Desktop login -->
+          <li class="nav-item d-none d-lg-block me-3">
+            {% if request.user.is_authenticated %}
+              <a class="nav-link fw-medium px-3 text-body text-nowrap" href="{% url 'profile' %}">My Account</a>
+            {% else %}
+              <a class="nav-link fw-medium px-3 text-body" href="{% url 'login' %}">Login</a>
+            {% endif %}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</nav>
+<!-- / Navbar -->
+    <!-- Main Section-->
+    <section class="mt-0 ">
+        <!-- Page Content Goes Here -->            
+        
+        <!-- Breadcrumbs-->
+        <div class="bg-dark py-6">
+            <div class="container-fluid">
+                <nav class="m-0" aria-label="breadcrumb">
+                    <ol class="breadcrumb m-0">
+                      <li class="breadcrumb-item breadcrumb-light"><a href="{% url "index" %}">Home</a></li>
+                      <li class="breadcrumb-item breadcrumb-light"><a href="{% url "category" %}">category</a></li>
+                      <li class="breadcrumb-item breadcrumb-light active" aria-current="page">{{ product.name }}</li>
+
+                    </ol>
+                </nav>            </div>
+        </div>
+        <!-- / Breadcrumbs-->
+
+        <div class="container-fluid mt-5">
+
+            <!-- Product Top Section-->
+            <div class="row g-9" data-sticky-container>
+
+                <!-- Product Images Carousel -->
+<div class="col-12 col-md-6 col-xl-7">
+  <div id="productImageCarousel" class="carousel slide" data-bs-ride="carousel" data-aos="fade-right">
+    <div class="carousel-inner">
+      <div class="carousel-inner">
+  {% if product.image %}
+    <div class="carousel-item active">
+      <img src="{{ product.image.url }}" class="fixed-square-img d-block w-100 img-fluid" alt="{{ product.name }}">
+    </div>
+  {% endif %}
+
+  {% for img in product.images.all %}
+    <div class="carousel-item {% if not product.image and forloop.first %}active{% endif %}">
+      <img src="{{ img.image.url }}" class="fixed-square-img d-block w-100 img-fluid" alt="{{ product.name }} - Extra Image">
+    </div>
+  {% endfor %}
+</div>
+
+    </div>
+
+    <!-- Carousel Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#productImageCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#productImageCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+</div>
+<!-- /Product Images Carousel -->
+
+  
+
+
+                <!-- Product Information-->
+                <div class="col-12 col-md-6 col-lg-5">
+                    <div class="sticky-top top-5">
+                        <div class="pb-3" data-aos="fade-in">
+                            <div class="d-flex align-items-center mb-3">
+                                <p class="small fw-bolder text-uppercase tracking-wider text-muted m-0 me-4">{{product.name}}</p>
+                                <div class="d-flex justify-content-start align-items-center disable-child-pointer cursor-pointer"
+                                data-pixr-scrollto
+                                data-target=".reviews">
+                                <!-- Review Stars Small-->
+                                <div class="rating d-flex align-items-center">
+  {% for i in "12345" %}
+    <i class="ri-star-fill {% if forloop.counter <= average_rating %}text-warning{% else %}text-muted{% endif %} fs-5"></i>
+  {% endfor %}
+  <small class="text-muted ms-2">{{ average_rating }} / 5</small>
+  <small class="text-muted d-inline-block ms-2 fs-bolder">
+    ({{ product.reviews.count }} reviews)
+  </small>
+</div>
+                            </div>
+                            </div>
+                            
+                            <h1 class="mb-1 fs-2 fw-bold">{{product.name}}</h1>
+                            <h4 class="m-2">{{ product.tagline }}</h4>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <p class="fs-4 m-0"> ₹{{product.price}}</p>
+                            </div>
+                            
+                           <form method="post" action="{% url 'add_to_cart' product.id %}">
+  {% csrf_token %}
+
+  <div class="border-top mt-4 mb-3 product-option">
+    <small class="text-uppercase pt-4 d-block fw-bolder">
+      <span class="text-muted">Available Sizes (Mens)</span> :
+    </small>
+
+    <div class="d-flex flex-wrap mt-3">
+ {% for size in sizes %}
+  <div class="form-check-option form-check-rounded me-2 mb-2">
+    <input
+      type="radio"
+      name="size"
+      value="{{ size.code }}"
+      id="option-size-{{ forloop.counter0 }}"
+      {% if not size.is_available %}disabled{% endif %}
+      {% if size.code == 'M' and size.is_available %}checked{% endif %}
+      required>
+    <label for="option-size-{{ forloop.counter0 }}"
+           class="{% if not size.is_available %}text-muted text-decoration-line-through{% endif %}">
+      <small>{{ size.code }}</small>
+    </label>
+  </div>
+{% endfor %}
+</div>
+  </div>
+
+  <button type="submit" class="btn btn-dark w-100 mt-4 mb-0 hover-lift-sm hover-boxshadow">
+    Add To Shopping Bag
+  </button>
+</form>
+
+                        
+                            <!-- Product Highlights-->
+                                <div class="my-5">
+                                    <div class="row">
+                                        <div class="col-12 col-md-4">
+                                            <div class="text-center px-2">
+                                                <i class="ri-money-dollar-circle-line ri-2x" title="Cash on Delivery"></i>
+                                                <small class="d-block mt-1">COD Available</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-4">
+                                            <div class="text-center px-2">
+                                                <i class="ri-timer-flash-line ri-2x" title="Super Fast Delivery"></i>
+                                                <small class="d-block mt-1">Super Fast Delivery</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-12 col-md-4">
+                                            <div class="text-center px-2">
+                                                <i class="ri-check-double-line ri-2x " title="Double Checked Quality"></i>
+
+                                                <small class="d-block mt-1">Quality Checked</small>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <!-- / Product Highlights-->
+                        
+                            <!-- Product Accordion -->
+                            <div class="accordion" id="accordionProduct">
+                                <div class="accordion-item">
+  <h2 class="accordion-header" id="headingOne">
+    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+      Product Details
+    </button>
+  </h2>
+  <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionProduct">
+    <div class="accordion-body">
+      <p class="m-0">{{ product.description|linebreaks }}</p>
+    </div>
+  </div>
+</div>
+                                <div class="accordion-item">
+                                    <h2 class="accordion-header" id="headingTwo">
+                                      <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Details & Care
+                                      </button>
+                                    </h2>
+                                    <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionProduct">
+                                      <div class="accordion-body">
+                                          <ul class="list-group list-group-flush">
+                                              <li class="list-group-item d-flex border-0 row g-0 px-0">
+                                                  <span class="col-4 fw-bolder">Fabric& feel</span>
+                                                  <span class="col-7 offset-1">100% cotton — no blends, no compromises</span>
+                                              </li>
+                                              <li class="list-group-item d-flex border-0 row g-0 px-0">
+                                                  <span class="col-4 fw-bolder">Washing and handling</span>
+                                                  <span class="col-7 offset-1">wash cold. Wear often. Treat it gently</span>
+                                              </li>
+                                          </ul>
+                                      </div>
+                                    </div>
+                                  </div>        
+                                <div class="accordion-item">
+                                  <h2 class="accordion-header" id="headingThree">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                      Delivery & Returns
+                                    </button>
+                                  </h2>
+                                  <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionProduct">
+                                    <div class="accordion-body">
+                                        <ul class="list-group list-group-flush">
+                                            <li class="list-group-item d-flex border-0 row g-0 px-0">
+                                                <span class="col-4 fw-bolder">Delivery</span>
+                                                <span class="col-7 offset-1">Domestic delivery within 4-6 working days. <br>Flat ₹99 shipping fee</span>
+                                            </li>
+                                            <li class="list-group-item d-flex border-0 row g-0 px-0">
+                                                <span class="col-4 fw-bolder">Returns</span>
+                                                <span class="col-7 offset-1">7 day return period. </span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            <!-- / Product Accordion-->
+                        </div>                    </div>
+                </div>
+                <!-- / Product Information-->
+            </div>
+            <!-- / Product Top Section-->
+
+            <div class="row g-0">
+
+                <!-- Related Products-->
+                <div class="col-12" data-aos="fade-up">
+                    <h3 class="fs-4 fw-bolder mt-7 mb-4">You May Also Like</h3>
+                    <!-- Swiper Latest -->
+<div class="swiper-container" data-swiper data-options='{
+  "spaceBetween": 10,
+  "loop": false,
+  "autoplay": {
+    "delay": 5000,
+    "disableOnInteraction": false
+  },
+  "navigation": {
+    "nextEl": ".swiper-next",
+    "prevEl": ".swiper-prev"
+  },
+  "breakpoints": {
+    "600": { "slidesPerView": 2 },
+    "1024": { "slidesPerView": 3 },
+    "1400": { "slidesPerView": 4 }
+  }
+}'>
+  <div class="swiper-wrapper">
+    {% if related_products %}
+  {% for product in related_products %}
+    <div class="swiper-slide">
+      <div class="card border border-transparent position-relative overflow-hidden h-100 transparent">
+        <div class="card-img position-relative">
+          <div class="card-badges">
+            <span class="badge badge-card">
+              <span class="f-w-2 f-h-2 bg-danger rounded-circle d-block me-1"></span> Sale
+            </span>
+          </div>
+          <span class="position-absolute top-0 end-0 p-2 z-index-20 text-muted">
+            <i class="ri-heart-line"></i>
+          </span>
+          <picture class="position-relative overflow-hidden d-block bg-light">
+            <img class="w-100 img-fluid position-relative z-index-10"
+                 title="{{ product.name }}"
+                 src="{{ product.imageURL }}"
+                 alt="{{ product.name }}">
+          </picture>
+        </div>
+        <div class="card-body px-0">
+          <a class="text-decoration-none link-cover fw-bold d-block text-center mt-2" href="{% url 'product' pk=product.id %}">
+            {{ product.name }}
+          </a>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+{% else %}
+  <p class="text-muted">No related products found.</p>
+{% endif %}
+
+  </div>
+</div>
+                    
+                      
+                <!-- / Related Products-->
+
+                <!-- Reviews -->
+<!-- Reviews Section -->
+<h3 class="fs-4 fw-bolder mt-7 mb-4">Customer Reviews ({{ reviews.count }})</h3>
+
+<!-- Reviews Display -->
+<div class="mb-4" id="review-list">
+  {% for review in reviews|slice:":3" %}
+    <div class="border p-3 mb-2 rounded bg-light review-item">
+  <div class="d-flex align-items-center gap-2 mb-2">
+    <strong class="me-2">{{ review.user.username }}</strong>
+    <div class="text-warning fs-4 d-flex">
+      {% for i in "12345" %}
+        <i class="ri-star-fill {% if forloop.counter <= review.rating %}text-warning{% else %}text-muted{% endif %}"></i>
+      {% endfor %}
+    </div>
+  </div>
+
+  {% if review.comment %}
+    <h5 class="mb-1 mt-1">{{ review.comment }}</h5>
+  {% endif %}
+  <small class="text-muted">{{ review.created_at|date:"F j, Y" }}</small>
+</div>
+
+  {% empty %}
+    <p>No reviews yet.</p>
+  {% endfor %}
+
+  {% if reviews|length > 4 %}
+    <div id="more-reviews" style="display:none;">
+      {% for review in reviews|slice:"4:" %}
+        <div class="border p-3 mb-2 rounded bg-light review-item">
+          <strong>{{ review.user.username }}</strong>
+          <div class="text-warning float-end fs-4">
+            {% for i in "12345" %}
+              <i class="ri-star-fill {% if forloop.counter <= review.rating %}text-warning{% else %}text-muted{% endif %}"></i>
+            {% endfor %}
+          </div>
+          {% if review.comment %}
+          <p class="mb-1 mt-2">{{ review.comment }}</p>
+          {% endif %}
+          <small class="text-muted">{{ review.created_at|date:"F j, Y" }}</small>
+        </div>
+      {% endfor %}
+    </div>
+    <button class="btn btn-outline-dark mt-2" onclick="document.getElementById('more-reviews').style.display='block'; this.style.display='none';">View More</button>
+  {% endif %}
+</div>
+
+<!-- Submit Review Form -->
+{% if user.is_authenticated %}
+<form method="POST" class="mb-5">
+  {% csrf_token %}
+  <div class="bg-light p-4 rounded mb-4">
+
+    <div class="mb-3">
+      <label class="fw-bold mb-2 d-block">Rating:</label>
+      <div class="star-rating">
+  {% for i in "54321" %}
+    <input type="radio" name="rating" id="star{{ i }}" value="{{ i }}">
+    <label for="star{{ i }}">&#9733;</label>
+  {% endfor %}
+</div>
+    </div>
+
+    <div class="mb-3">
+      <label class="fw-bold mb-2 d-block" required>Comment:</label>
+      {{ review_form.comment|add_class:"form-control rounded p-3" }}
+    </div>
+
+    <button type="submit" class="btn btn-dark">Submit Review</button>
+  </div>
+</form>
+
+{% else %}
+  <div class="alert alert-info text-center" role="alert">
+  Please <a href="{% url 'login' %}" class="alert-link">log in</a> to leave a review.
+</div>
+{% endif %}
+
+
+        <!-- /Page Content -->
+    </section>
+    <!-- / Main Section-->
+
+    <!-- Footer -->
+    <footer class="border-top py-5 mt-4  ">
+        <div class="container-fluid">
+            <div class="d-flex justify-content-between align-items-center flex-column flex-lg-row">
+                <div>
+                    <ul class="list-unstyled">
+                        <li class="d-inline-block me-1"><a class="text-decoration-none text-dark-hover transition-all"
+                                href="https://www.instagram.com/wabi.clothing?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="ri-instagram-fill"></i></a></li>
+                        <li class="d-inline-block me-1"><a class="text-decoration-none text-dark-hover transition-all"
+                                href="#"><i class="ri-facebook-fill"></i></a></li>
+                        <li class="d-inline-block me-1"><a class="text-decoration-none text-dark-hover transition-all"
+                                href="#"><i class="ri-twitter-fill"></i></a></li>
+                    </ul>
+                </div>
+                <div class="d-flex align-items-center justify-content-end flex-column flex-lg-row">
+                    <p class="small m-0 text-center text-lg-start">&copy; 2025 WABI All Rights Reserved. UPM Technologies</a></p>
+                </div>
+            </div>
+        </div>
+    </footer>    <!-- / Footer-->  
+
+    <!-- Theme JS -->
+    <!-- Vendor JS -->
+    <script src="{% static 'js/vendor.bundle.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+    <!-- Theme JS -->
+    <script src="{% static 'js/theme.bundle.js' %}"></script>
+ <script>
+document.addEventListener('DOMContentLoaded', () => {
+  // --- SEARCH TOGGLE ---
+  const searchTrigger = document.querySelector('.search-trigger');
+  const searchForm = document.querySelector('.search-form');
+  const searchInput = document.querySelector('.search-input');
+
+  if (searchTrigger && searchForm && searchInput) {
+    searchTrigger.addEventListener('click', () => {
+      searchForm.classList.toggle('active');
+
+      if (searchForm.classList.contains('active')) {
+        searchInput.focus();
+      } else {
+        searchInput.value = '';
+      }
+    });
+
+    searchForm.addEventListener('submit', () => {
+      searchForm.classList.remove('active');
+    });
+  }
+
+  // --- AUTO DISMISS ALERTS AFTER 2 SECONDS ---
+  const alerts = document.querySelectorAll('.auto-dismiss');
+
+  alerts.forEach(alert => {
+    setTimeout(() => {
+      alert.classList.remove('show'); // Bootstrap fade out
+      setTimeout(() => alert.remove(), 500); // Remove from DOM
+    }, 1000); // 2-second delay
+  });
+});
+</script>
+</body>
+
+</html>
