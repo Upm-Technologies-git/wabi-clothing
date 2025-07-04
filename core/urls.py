@@ -22,7 +22,7 @@ from django.conf.urls import  handler404, handler500, handler403, handler400
 from dressapp import custom_error_views
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
+    path("wabiadmin/", admin.site.urls),
     path("", include("dressapp.urls")),
 ]
 
