@@ -27,6 +27,11 @@ DEBUG = True
 ALLOWED_HOSTS = ['13.203.239.161', 'wabiclothing.com', 'www.wabiclothing.com']
 
 
+CSRF_TRUSTED_ORIGINS = [
+    "https://www.wabiclothing.com",
+]
+
+
 # Application definition
 
 INSTALLED_APPS = [
