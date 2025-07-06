@@ -24,7 +24,7 @@ SECRET_KEY = "django-insecure-zjdtiul^$tj&_^i7h!_29(v*z8r_w(9e2om5s(7p(4riy5w16u
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ['13.203.239.161', 'wabiclothing.com', 'www.wabiclothing.com']
+ALLOWED_HOSTS = ["wabiclothing.com", "www.wabiclothing.com"]
 
 
 CSRF_TRUSTED_ORIGINS = [
