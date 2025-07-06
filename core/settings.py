@@ -27,9 +27,7 @@ DEBUG = True
 ALLOWED_HOSTS = ["wabiclothing.com", "www.wabiclothing.com"]
 
 
-CSRF_TRUSTED_ORIGINS = [
-    "https://www.wabiclothing.com",
-]
+CSRF_TRUSTED_ORIGINS = ['https://wabiclothing.com', 'https://www.wabiclothing.com']
 
 
 # Application definition
